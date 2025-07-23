@@ -1,30 +1,72 @@
 # 📝 Haskell Todo List App
 
-A minimal full-stack **Todo List application** built in Haskell using:
+A minimal full-stack **Todo List** web app built with:
 
-- 🔗 [Servant](https://hackage.haskell.org/package/servant) – Type-safe backend API
-- 🎨 [Lucid](https://hackage.haskell.org/package/lucid) – HTML rendering using Haskell
-- ⚡ [HTMX](https://htmx.org/) – AJAX interactivity with zero JavaScript
-- 💅 [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS styling
-- 🐘 [PostgreSQL](https://www.postgresql.org/) – Relational database
-- 🧳 [Persistent](https://hackage.haskell.org/package/persistent) – Type-safe ORM
+- **Haskell** (GHC 9.6) & **Servant** – type-safe REST API  
+- **Lucid** – DSL for HTML rendering  
+- **HTMX** – AJAX interactivity without JavaScript  
+- **Tailwind CSS** – utility-first responsive design  
+- **PostgreSQL** – durable storage  
+- **Persistent** – typed Haskell ORM  
+
+---
+
+## 🚀 Features
+
+- create, toggle, and delete todos  
+- server-rendered interactivity powered by HTMX  
+- responsive mobile-first layout with Tailwind  
+- clean, type-safe codebase with Haskell  
 
 ---
 
-## ✨ Features
+## 🏁 Getting Started (Local Development)
 
-- ✅ Add, toggle, and delete todo items
-- 🧠 Server-rendered HTML with dynamic updates via HTMX
-- ⚡ Instant interaction with zero frontend JS
-- 📦 PostgreSQL-backed with persistent models
-- 🌐 Clean layout styled with TailwindCSS
+### Prerequisites
 
----
-<!-- 
-## 🖥️ Local Development
+- Docker  
+- PostgreSQL (for local PostgreSQL setup)  
 
-### 1. Clone & Setup
+
+### ✅ Run Locally
+ - Export `DATABASE_URL` and `PORT` environment variables.
+```bash
+export DATABASE_URL="postgresql://postgres:postgres@localhost:5432/postgres"
+export PORT=8000
+```
+ - Install dependencies using Cabal.
 
 ```bash
-git clone https://github.com/your-username/haskell-todo-app.git
-cd haskell-todo-app -->
+cabal update
+cabal install --only-dependencies
+```
+- Build the app using Cabal.
+
+```bash
+cabal build
+```
+ - Run the app using Cabal.
+    
+```bash
+cabal run
+```
+
+### ✅ Run with Docker
+
+```bash
+# Build Docker image
+docker build -t todo-app .
+```
+
+# Run PostgreSQL and the app
+```bash
+docker run --name todo-postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres:15
+docker run \
+  --name todo-app --rm \
+  -e DATABASE_URL="postgresql://postgres:postgres@host.docker.internal:5432/postgres" \
+  -e PORT=8000 \
+  -p 8000:8000 \
+  todo-app
+
+
+Open http://localhost:8000 in your browser.

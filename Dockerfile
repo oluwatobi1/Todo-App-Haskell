@@ -1,11 +1,14 @@
 # ─── Stage 1: Build Stage (using official Haskell image) ───────────────
 FROM haskell:9.6-slim-bullseye AS builder
 
-RUN apt-get update && apt-get install -y \
-      libpq-dev \
-      postgresql-client \
-      ca-certificates \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update \
+  && apt-get install -y wget ca-certificates lsb-release \
+  && echo "deb http://apt.postgresql.org/pub/repos/apt \
+      $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list \
+  && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
+  && apt-get update \
+  && apt-get install -y pkg-config libpq-dev
+
 
 RUN cabal update && cabal install hpack
 
