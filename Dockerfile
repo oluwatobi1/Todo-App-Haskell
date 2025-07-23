@@ -19,11 +19,12 @@ RUN hpack
 # Build dependencies first
 RUN cabal build --only-dependencies
 
-# Build optimized executable and install to /app/bin
-RUN cabal build -O2 \
-    --installdir=/app/bin \
-    --install-method=copy \
-    --overwrite-policy=always
+
+RUN cabal install -O2 \
+--installdir=/app/bin \
+--install-method=copy \
+--overwrite-policy=always
+
 
 # Strip debug symbols to shrink the binary
 RUN strip /app/bin/todo-list-app-exe
