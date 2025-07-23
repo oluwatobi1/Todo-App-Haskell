@@ -1,0 +1,36 @@
+# Ignore build artifacts
+dist/
+dist-newstyle/
+cabal.project.local
+*.hi
+*.o
+*.dyn_hi
+*.dyn_o
+*.prof
+*.aux
+*.hp
+*.eventlog
+
+# Ignore Cabal sandbox files
+cabal.sandbox.config
+.sandbox/
+
+# Ignore stack build files
+.stack-work/
+
+# Ignore Haskell IDE files
+*.hie
+*.hie-bios
+*.ghc.environment.*
+
+# Ignore temporary files
+*.tmp
+*.log
+*.swp
+*.swo
+
+# Ignore Lucid HTML generated files
+*.html
+
+# Ignore Servant API generated files
+*.json

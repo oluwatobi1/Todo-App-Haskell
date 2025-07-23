@@ -1,0 +1,117 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.38.1.
+--
+-- see: https://github.com/sol/hpack
+
+name:               todo-list-gem
+version:            0.1.0.0
+license:            BSD-3-Clause
+license-file:       LICENSE
+author:             Oluwatobi Akintunlese
+maintainer:         akintunlesetobi@gmail.com
+category:           Web
+build-type:         Simple
+extra-doc-files:
+    CHANGELOG.md
+
+library
+    exposed-modules:
+        Api
+        Db
+        Model
+        Server
+        View
+    other-modules:
+        Paths_todo_list_gem
+    autogen-modules:
+        Paths_todo_list_gem
+    build-depends:
+        aeson,
+        base >=4.18.3.0 && <4.19,
+        blaze-html,
+        bytestring,
+        http-api-data,
+        lucid,
+        monad-logger,
+        path-pieces,
+        persistent,
+        persistent-postgresql,
+        persistent-template,
+        resource-pool,
+        servant,
+        servant-lucid,
+        servant-server,
+        text,
+        time,
+        wai,
+        warp
+    hs-source-dirs:
+        src
+    ghc-options: -Wall
+    default-language: GHC2021
+
+executable todo-list-gem
+    main-is: Main.hs
+    other-modules:
+        Paths_todo_list_gem
+    autogen-modules:
+        Paths_todo_list_gem
+    build-depends:
+        aeson,
+        base >=4.18.3.0 && <4.19,
+        blaze-html,
+        bytestring,
+        http-api-data,
+        lucid,
+        monad-logger,
+        path-pieces,
+        persistent,
+        persistent-postgresql,
+        persistent-template,
+        resource-pool,
+        servant,
+        servant-lucid,
+        servant-server,
+        text,
+        time,
+        todo-list-gem,
+        wai,
+        warp
+    hs-source-dirs:
+        app
+    ghc-options: -Wall -Wall
+    default-language: GHC2021
+
+test-suite todo-list-gem-test
+    default-language: GHC2021
+    type: exitcode-stdio-1.0
+    hs-source-dirs:
+        test
+    ghc-options: -Wall -Wall
+    main-is: Main.hs
+    other-modules:
+        Paths_todo_list_gem
+    autogen-modules:
+        Paths_todo_list_gem
+    build-depends:
+        aeson,
+        base,
+        blaze-html,
+        bytestring,
+        http-api-data,
+        lucid,
+        monad-logger,
+        path-pieces,
+        persistent,
+        persistent-postgresql,
+        persistent-template,
+        resource-pool,
+        servant,
+        servant-lucid,
+        servant-server,
+        text,
+        time,
+        todo-list-gem,
+        wai,
+        warp

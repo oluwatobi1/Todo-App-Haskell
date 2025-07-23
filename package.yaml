@@ -1,0 +1,58 @@
+name: todo-list-gem
+version: 0.1.0.0
+license: BSD-3-Clause
+license-file: LICENSE
+author: Oluwatobi Akintunlese
+maintainer: akintunlesetobi@gmail.com
+category: Web
+build-type: Simple
+extra-doc-files:
+  - CHANGELOG.md
+
+default-language: GHC2021
+ghc-options: -Wall
+
+# Shared dependencies for all components
+dependencies:
+  - base ^>= 4.18.3.0
+  - persistent
+  - persistent-template
+  - persistent-postgresql
+  - lucid
+  - text
+  - aeson
+  - time
+  - resource-pool
+  - monad-logger
+  - servant
+  - servant-server
+  - servant-lucid
+  - wai
+  - warp
+  - blaze-html
+  - bytestring
+  - http-api-data
+  - path-pieces
+  
+
+library:
+  source-dirs: src
+  # No exposed-modules: let Hpack auto-detect them for IntelliSense
+
+executables:
+  todo-list-gem:
+    main: Main.hs
+    source-dirs: app
+    ghc-options: -Wall
+    dependencies:
+      - todo-list-gem
+
+tests:
+  todo-list-gem-test:
+    main: Main.hs
+    source-dirs: test
+    type: exitcode-stdio-1.0
+    ghc-options: -Wall
+    dependencies:
+      - todo-list-gem
+      - base
