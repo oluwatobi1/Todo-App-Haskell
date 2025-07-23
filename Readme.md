@@ -11,6 +11,13 @@ A minimal full-stack **Todo List** web app built with:
 
 ---
 
+<!-- Live link https://todo-app-haskell.onrender.com-->
+### 🌐 Live Demo
+
+Check out the live version of the app here: [Todo App Live Demo](https://todo-app-haskell.onrender.com)
+
+[https://todo-app-haskell.onrender.com](https://todo-app-haskell.onrender.com)
+
 ## 🚀 Features
 
 - create, toggle, and delete todos  
