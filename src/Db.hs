@@ -12,7 +12,9 @@ import Data.ByteString.Char8 (pack)
 getConnStr :: IO ConnectionString
 getConnStr = do
   env <- lookupEnv "DATABASE_URL"
-  pure $ pack $ fromMaybe  "host=localhost dbname=tododb user=tobi password=postgres port=5432" env
+  let conn = fromMaybe  "host=localhost dbname=tododb user=tobi password=postgres port=5432" env
+  putStrLn $ "Connecting with: " ++ conn
+  pure $ pack conn
 
 
 makePool :: IO ConnectionPool

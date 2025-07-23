@@ -27,7 +27,8 @@ RUN cabal install -O2 \
 
 
 # Strip debug symbols to shrink the binary
-RUN strip /app/bin/todo-list-app-exe
+RUN strip /app/bin/todo-list-gem
+
 
 # ─── Stage 2: Runtime Stage (minimal image) ─────────────────────────────
 FROM debian:bullseye-slim
