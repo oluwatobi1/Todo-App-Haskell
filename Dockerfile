@@ -29,7 +29,6 @@ RUN cabal install -O2 \
 # Strip debug symbols to shrink the binary
 RUN strip /app/bin/todo-list-gem
 
-
 # ─── Stage 2: Runtime Stage (minimal image) ─────────────────────────────
 FROM debian:bullseye-slim
 
@@ -39,7 +38,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
-COPY --from=builder /app/bin/todo-list-app-exe /app/server
+COPY --from=builder /app/bin/todo-list-gem /app/server
 
 EXPOSE 8000
 CMD ["/app/server"]
