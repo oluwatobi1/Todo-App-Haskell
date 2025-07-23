@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: todo-hs-app
+    env: haskell
+    buildCommand: stack setup && stack build
+    startCommand: stack exec todo-list-app-exe
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: tododb
+          property: connectionString
+
+databases:
+  - name: tododb
+    databaseName: tododb
+    user: render
