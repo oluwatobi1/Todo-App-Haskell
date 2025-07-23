@@ -14,7 +14,7 @@ ghc-options: -Wall
 
 # Shared dependencies for all components
 dependencies:
-  - base ^>= 4.18.3.0
+  - base  >= 4.16 && < 4.19
   - persistent
   - persistent-template
   - persistent-postgresql

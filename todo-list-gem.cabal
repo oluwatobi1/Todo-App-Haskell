@@ -28,7 +28,7 @@ library
         Paths_todo_list_gem
     build-depends:
         aeson,
-        base >=4.18.3.0 && <4.19,
+        base >=4.16 && <4.19,
         blaze-html,
         bytestring,
         http-api-data,
@@ -59,7 +59,7 @@ executable todo-list-gem
         Paths_todo_list_gem
     build-depends:
         aeson,
-        base >=4.18.3.0 && <4.19,
+        base >=4.16 && <4.19,
         blaze-html,
         bytestring,
         http-api-data,
